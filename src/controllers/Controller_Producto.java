@@ -139,9 +139,15 @@ void update (){
     try {
        PreparedStatement pst = cn.prepareStatement("UPDATE Productos SET  Producto='" + producto.jtx_producto.getText() + "',Descripcion='" + producto.jtxt_descripcion.getText() + "',Precio_compra='" + producto.jtxt_precio_compra.getText() + "',Precio_venta='" + producto.jtxt_precio_venta.getText() + "',Existencia='" + producto.jtxt_existencia.getText()  + "' WHERE Id_Producto='" + producto.jtxt_id.getText() + "'");
        pst.executeUpdate();
+        Buscarid("");
        } catch (Exception e) {
          System.out.print(e.getMessage());
-        }         
+        } 
+        producto.jtx_producto.setText("");
+        producto.jtxt_descripcion.setText("");
+        producto.jtxt_precio_compra.setText("");
+        producto.jtxt_precio_venta.setText("");
+        producto.jtxt_existencia.setText("");
 }
 
 void modifica(){
