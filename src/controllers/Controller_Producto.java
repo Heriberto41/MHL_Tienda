@@ -40,6 +40,7 @@ public Controller_Producto (View_Producto producto){
     this.producto.jMenueliminar.addActionListener(this);
     this.producto.jMenumodificar.addActionListener(this);
     this.producto.jbtn_todo.addActionListener(this);
+    this.producto.jbtn_update.setEnabled(false);
  } 
  
 void save(){
@@ -51,6 +52,7 @@ void save(){
             pst.setString(4, producto.jtxt_precio_venta.getText());
             pst.setString(5, producto.jtxt_existencia.getText());
             pst.executeUpdate();
+            Buscarid("");
         } catch (Exception e) {
             System.out.print(e.getMessage());
         }
@@ -151,8 +153,8 @@ void update (){
 }
 
 void modifica(){
-    boolean bloquea = false;
-    producto.jbtn_save.setEnabled(bloquea);
+    producto.jbtn_save.setEnabled(false);
+    producto.jbtn_update.setEnabled(true);
     int fila = producto.jtbl_productos.getSelectedRow();
     if (fila >= 0) {
         producto.jtxt_id.setText(producto.jtbl_productos.getValueAt(fila, 0).toString());
@@ -162,7 +164,7 @@ void modifica(){
         producto.jtxt_precio_venta.setText(producto.jtbl_productos.getValueAt(fila, 4).toString());
         producto.jtxt_existencia.setText(producto.jtbl_productos.getValueAt(fila, 5).toString());
     } else {
-        JOptionPane.showMessageDialog(null, "no seleciono fila");
+        JOptionPane.showMessageDialog(null, "No seleciono fila");
     }
 }
 
@@ -185,8 +187,14 @@ void elimina (){
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()== this.producto.jbtn_save){
-            save();
+         if (e.getSource() == this.producto.jbtn_save ){
+           if(producto.jtx_producto.getText().equals("") || producto.jtxt_descripcion.getText().equals("")|| producto.jtxt_precio_compra.getText().equals("")|| producto.jtxt_precio_venta.getText().equals("") || producto.jtxt_existencia.getText().equals("")){
+              JOptionPane.showMessageDialog(null,"Falta llenar algunos campos, por favor llenalos ");
+             }
+           else if (e.getSource() == this.producto.jbtn_save ){
+               save();
+           }
+           
         }
         
         else if (e.getSource() == this.producto.jbtn_buscar_id){
