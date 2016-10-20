@@ -9,12 +9,12 @@ package views;
  *
  * @author Liz
  */
-public class View_Proveedores extends javax.swing.JPanel {
+public class View_Proveedor extends javax.swing.JFrame {
 
     /**
-     * Creates new form View_Proveedores
+     * Creates new form View_Proveedor
      */
-    public View_Proveedores() {
+    public View_Proveedor() {
         initComponents();
     }
 
@@ -30,6 +30,7 @@ public class View_Proveedores extends javax.swing.JPanel {
         jPopupMenu1 = new javax.swing.JPopupMenu();
         jMenumodificar = new javax.swing.JMenuItem();
         jMenueliminar = new javax.swing.JMenuItem();
+        jbtn_buscar_proveedor = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jl_producto = new javax.swing.JLabel();
         jl_descripcion = new javax.swing.JLabel();
@@ -57,15 +58,14 @@ public class View_Proveedores extends javax.swing.JPanel {
         jtf_nombredecontacto = new javax.swing.JTextField();
         jtf_telefono = new javax.swing.JTextField();
         jtf_email = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jtxt_busca_id = new javax.swing.JTextField();
+        jbtn_buscar_id = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jtf_buscaproveedor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtbl_proveedores = new javax.swing.JTable();
         jbtn_todo = new javax.swing.JButton();
-        jbtn_buscar_proveedor = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jtxt_busca_id = new javax.swing.JTextField();
-        jbtn_buscar_id = new javax.swing.JButton();
 
         jMenumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/editar.png"))); // NOI18N
         jMenumodificar.setText("Modificar");
@@ -85,6 +85,11 @@ public class View_Proveedores extends javax.swing.JPanel {
         });
         jPopupMenu1.add(jMenueliminar);
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jbtn_buscar_proveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jbtn_buscar_proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Busqueda.png"))); // NOI18N
+
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
 
@@ -102,6 +107,18 @@ public class View_Proveedores extends javax.swing.JPanel {
 
         jl_existencia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jl_existencia.setText("Numero");
+
+        jtf_proveedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_proveedorActionPerformed(evt);
+            }
+        });
+
+        jtf_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtf_nombreActionPerformed(evt);
+            }
+        });
 
         jbtn_save.setBackground(new java.awt.Color(204, 204, 255));
         jbtn_save.setForeground(new java.awt.Color(240, 240, 240));
@@ -195,41 +212,45 @@ public class View_Proveedores extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jtf_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtf_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
-                                .addComponent(jtf_rfc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtf_calle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtf_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jtf_colonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(22, 22, 22)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jtf_proveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jtf_rfc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtf_calle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jtf_numero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtf_colonia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jbtn_save)
+                                        .addGap(32, 32, 32)
+                                        .addComponent(jbtn_update))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jl_id)
-                                .addGap(18, 18, 18)
+                                .addContainerGap()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jl_id)
+                                    .addComponent(jtf_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jl_producto)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jl_descripcion)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jl_precio_compra)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jl_precio_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jl_existencia)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel1))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jbtn_save)
-                                .addGap(32, 32, 32)
-                                .addComponent(jbtn_update)))
-                        .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)))
+                        .addGap(66, 66, 66)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jtf_ciudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -250,28 +271,8 @@ public class View_Proveedores extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel8)
                     .addComponent(jtf_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel7.setText("Proveedor");
-
-        jtf_buscaproveedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-
-        jtbl_proveedores.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jtbl_proveedores);
-
-        jbtn_todo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/ojo.png"))); // NOI18N
-
-        jbtn_buscar_proveedor.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jbtn_buscar_proveedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/Busqueda.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("ID");
@@ -291,8 +292,25 @@ public class View_Proveedores extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel7.setText("Proveedor");
+
+        jtf_buscaproveedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jtbl_proveedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jtbl_proveedores);
+
+        jbtn_todo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/ojo.png"))); // NOI18N
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -342,21 +360,17 @@ public class View_Proveedores extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtn_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_saveActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jbtn_saveActionPerformed
 
     private void jbtn_updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_updateActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jbtn_updateActionPerformed
-
-    private void jtxt_busca_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_busca_idActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtxt_busca_idActionPerformed
 
     private void jtf_coloniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_coloniaActionPerformed
         // TODO add your handling code here:
@@ -366,19 +380,64 @@ public class View_Proveedores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtf_nombredecontactoActionPerformed
 
+    private void jtxt_busca_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_busca_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_busca_idActionPerformed
+
     private void jbtn_buscar_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_buscar_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_buscar_idActionPerformed
 
     private void jMenumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenumodificarActionPerformed
         // TODO add your handling code here:
-
     }//GEN-LAST:event_jMenumodificarActionPerformed
 
     private void jMenueliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenueliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenueliminarActionPerformed
 
+    private void jtf_proveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_proveedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_proveedorActionPerformed
+
+    private void jtf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtf_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtf_nombreActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(View_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(View_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(View_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(View_Proveedor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new View_Proveedor().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

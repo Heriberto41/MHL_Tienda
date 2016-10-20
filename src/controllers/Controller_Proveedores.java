@@ -16,23 +16,23 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import views.View_Proveedores;
+import views.View_Proveedor;
 import libs.Conectar;
 /**
  *
  * @author Liz
  */
 public class Controller_Proveedores extends javax.swing.JFrame implements ActionListener{
-View_Proveedores proveedores;
+ View_Proveedor proveedores;
  Conectar cc = new Conectar();
  Connection cn = cc.conexion();
  
-public Controller_Proveedores (View_Proveedores producto){
-    this.proveedores = proveedores;
+public Controller_Proveedores (View_Proveedor provedores){
+    this.proveedores = provedores;
     this.proveedores.setVisible(true);
     this.proveedores.jtf_id.setVisible(false);
     this.proveedores.jl_id.setVisible(false);
-//    this.proveedores.setLocationRelativeTo(this);
+    this.proveedores.setLocationRelativeTo(this);
     this.proveedores.jbtn_buscar_id.addActionListener(this);
     this.proveedores.jbtn_buscar_proveedor.addActionListener(this);
     this.proveedores.jbtn_save.addActionListener(this);
@@ -45,7 +45,7 @@ public Controller_Proveedores (View_Proveedores producto){
 } 
 void save(){
    try {
-       PreparedStatement pst = cn.prepareStatement("INSERT INTO productos (Producto,Descripcion,Precio_compra,Precio_venta,Existencia) VALUES (?,?,?,?,?)");
+       PreparedStatement pst = cn.prepareStatement("INSERT INTO proveedores (proveedor,Nombre,Precio_compra,Precio_venta,Existencia) VALUES (?,?,?,?,?)");
             pst.setString(1, proveedores.jtf_proveedor.getText());
             pst.setString(2, proveedores.jtf_nombre.getText());
             pst.setString(3, proveedores.jtf_rfc.getText());
@@ -78,13 +78,11 @@ void save(){
  void Buscarid(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("PROVEEDOR");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("RFC");
         modelo.addColumn("CALLE");
         modelo.addColumn("NUMERO");
         modelo.addColumn("COLONIA");
-        modelo.addColumn("CIUDAD");
         modelo.addColumn("ESTADO");
         modelo.addColumn("NOMBRE DE CONTACTO");
         modelo.addColumn("TELEFONO");
@@ -92,12 +90,12 @@ void save(){
         this.proveedores.jtbl_proveedores.setModel(modelo);
         String sql = "";
         if (valor.equals("")) {
-            sql = "SELECT * FROM Proveedores";
+            sql = "SELECT * FROM proveedores";
         } else {
-            sql = "SELECT * FROM Proveedores WHERE Id_Provedor='" + valor + "'";
+            sql = "SELECT * FROM proveedores WHERE id_Provedor='" + valor + "'";
         }
         
-        String[] datos = new String[12];
+        String[] datos = new String[10];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -112,8 +110,7 @@ void save(){
                 datos[7] = rs.getString(8);
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
-                datos[10] = rs.getString(11);
-                datos[11] = rs.getString(12);
+           
                 
                 modelo.addRow(datos);
             }
@@ -128,7 +125,6 @@ void save(){
 void Buscarproducto(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("PROVEEDOR");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("RFC");
         modelo.addColumn("CALLE");
@@ -144,10 +140,10 @@ void Buscarproducto(String valor){
         if (valor.equals("")) {
             sql = "SELECT * FROM Proveedores";
         } else {
-            sql = "SELECT * FROM Proveedores WHERE proveedores='" + valor + "'";
+            sql = "SELECT * FROM Proveedores WHERE proveedor='" + valor + "'";
         }
 
-String[] datos = new String[12];
+String[] datos = new String[11];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -163,7 +159,6 @@ String[] datos = new String[12];
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
                 datos[10] = rs.getString(11);
-                datos[11] = rs.getString(12);
                 modelo.addRow(datos);
             }
             this.proveedores.jtbl_proveedores.setModel(modelo);
@@ -174,7 +169,6 @@ String[] datos = new String[12];
 void Buscarproveedor(String valor){
    DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("ID");
-        modelo.addColumn("PROVEEDOR");
         modelo.addColumn("NOMBRE");
         modelo.addColumn("RFC");
         modelo.addColumn("CALLE");
@@ -190,11 +184,11 @@ void Buscarproveedor(String valor){
         if (valor.equals("")) {
             sql = "SELECT * FROM Proveedores";
         } else {
-            sql = "SELECT * FROM Proveedores WHERE proveedor='" + valor + "'";
+            sql = "SELECT * FROM Proveedores WHERE Id_proveedor='" + valor + "'";
         }
 
 
-String[] datos = new String[12];
+String[] datos = new String[11];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
@@ -211,7 +205,6 @@ String[] datos = new String[12];
                 datos[8] = rs.getString(9);
                 datos[9] = rs.getString(10);
                 datos[10] = rs.getString(11);
-                datos[11] = rs.getString(12);
                 modelo.addRow(datos);
             }
             this.proveedores.jtbl_proveedores.setModel(modelo);
