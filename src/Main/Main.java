@@ -17,8 +17,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-      View_Proveedor proveedor = new View_Proveedor();
-      Controller_Proveedores controller_Proveedores = new Controller_Proveedores(proveedor);
+      View_Producto proveedor = new View_Producto();
+      Controller_Producto controller_Proveedores = new Controller_Producto(proveedor);
     }
     
 }
