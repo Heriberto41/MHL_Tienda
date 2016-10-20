@@ -27,6 +27,9 @@ public class View_Proveedores extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenumodificar = new javax.swing.JMenuItem();
+        jMenueliminar = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jl_producto = new javax.swing.JLabel();
         jl_descripcion = new javax.swing.JLabel();
@@ -57,12 +60,30 @@ public class View_Proveedores extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jtf_buscaproveedor = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jtbl_productos = new javax.swing.JTable();
+        jtbl_proveedores = new javax.swing.JTable();
         jbtn_todo = new javax.swing.JButton();
         jbtn_buscar_proveedor = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jtxt_busca_id = new javax.swing.JTextField();
         jbtn_buscar_id = new javax.swing.JButton();
+
+        jMenumodificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/editar.png"))); // NOI18N
+        jMenumodificar.setText("Modificar");
+        jMenumodificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenumodificarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenumodificar);
+
+        jMenueliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/eliminarchico.png"))); // NOI18N
+        jMenueliminar.setText("Eliminar");
+        jMenueliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenueliminarActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenueliminar);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 2, true));
@@ -237,7 +258,7 @@ public class View_Proveedores extends javax.swing.JPanel {
 
         jtf_buscaproveedor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jtbl_productos.setModel(new javax.swing.table.DefaultTableModel(
+        jtbl_proveedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -245,7 +266,7 @@ public class View_Proveedores extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(jtbl_productos);
+        jScrollPane1.setViewportView(jtbl_proveedores);
 
         jbtn_todo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/ojo.png"))); // NOI18N
 
@@ -349,6 +370,15 @@ public class View_Proveedores extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbtn_buscar_idActionPerformed
 
+    private void jMenumodificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenumodificarActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jMenumodificarActionPerformed
+
+    private void jMenueliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenueliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenueliminarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -359,7 +389,10 @@ public class View_Proveedores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    public javax.swing.JMenuItem jMenueliminar;
+    public javax.swing.JMenuItem jMenumodificar;
     private javax.swing.JPanel jPanel1;
+    public javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JButton jbtn_buscar_id;
     public javax.swing.JButton jbtn_buscar_proveedor;
@@ -372,7 +405,7 @@ public class View_Proveedores extends javax.swing.JPanel {
     private javax.swing.JLabel jl_precio_compra;
     private javax.swing.JLabel jl_precio_venta;
     private javax.swing.JLabel jl_producto;
-    public javax.swing.JTable jtbl_productos;
+    public javax.swing.JTable jtbl_proveedores;
     public javax.swing.JTextField jtf_buscaproveedor;
     public javax.swing.JTextField jtf_calle;
     public javax.swing.JTextField jtf_ciudad;

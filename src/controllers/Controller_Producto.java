@@ -114,11 +114,13 @@ void Buscarproducto(String valor){
             sql = "SELECT * FROM Productos WHERE Producto='" + valor + "'";
         }
 
+        
         String[] datos = new String[6];
         try {
             Statement st = cn.createStatement();
             ResultSet rs = st.executeQuery(sql);
             while (rs.next()) {
+        
                 datos[0] = rs.getString(1);
                 datos[1] = rs.getString(2);
                 datos[2] = rs.getString(3);

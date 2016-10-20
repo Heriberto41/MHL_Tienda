@@ -95,6 +95,12 @@ public class View_Producto extends javax.swing.JFrame {
         jl_existencia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jl_existencia.setText("Existencia");
 
+        jtxt_descripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtxt_descripcionActionPerformed(evt);
+            }
+        });
+
         jbtn_save.setBackground(new java.awt.Color(204, 204, 255));
         jbtn_save.setForeground(new java.awt.Color(240, 240, 240));
         jbtn_save.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imges/save.png"))); // NOI18N
@@ -259,10 +265,11 @@ public class View_Producto extends javax.swing.JFrame {
                                 .addComponent(jLabel6)
                                 .addComponent(jtxt_busca_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jtxt_busca_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtn_buscar_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbtn_buscar_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel7)
+                                .addComponent(jtxt_busca_producto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jbtn_todo))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -294,6 +301,10 @@ public class View_Producto extends javax.swing.JFrame {
     private void jMenueliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenueliminarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenueliminarActionPerformed
+
+    private void jtxt_descripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtxt_descripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtxt_descripcionActionPerformed
 
     /**
      * @param args the command line arguments
