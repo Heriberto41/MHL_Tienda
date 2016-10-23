@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/views/View_Proveedores.java</file>
+            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/views/View_Cliente.java</file>
+            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/views/View_Proveedor.java</file>
+            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/views/Punto_Venta.java</file>
             <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/Main/Main.java</file>
-            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/controllers/Controller_Producto.java</file>
-            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/controllers/Controller_Proveedores.java</file>
             <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/views/View_Producto.java</file>
+            <file>file:/C:/Users/Liz/Documents/NetBeansProjects/MHL_Tienda/src/controllers/Controller_Clientes.java</file>
         </group>
     </open-files>
 </project-private>
